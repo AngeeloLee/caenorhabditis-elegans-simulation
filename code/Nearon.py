@@ -5,7 +5,7 @@
 
 #from abd import ABCMeta,abstractmethod
 import threading
-import time
+import datetime
 
 #连接类型系数
 linkTypeRatio = {
@@ -104,12 +104,23 @@ class BaseNearon(threading.Thread):
             nearon.signal.value += targetSignalValue * (1 + 1/nearon.linkDistance)
 
 
-    def log(self,action):
+    def log(self, action, targetOrOrignalNearonName):
         """日志记录方法 
         """
         logFile = open(self.name+'-log.txt', 'a')
+        logInfo = datetime.datetime.now().strftime() + ' => [' + self.name + '] '
         if action == 'send':
-            
+            logInfo += 'send to [' + targetOrOrignalNearonName + '] a Signal with '
+            logInfo += 'Value=' + self.backNearon[targetOrOrignalNearonName].Signal.Value
+            logInfo += ' Power=' + self.backNearon[targetOrOrignalNearonName].Signal.power
+            logInfo += ' Type=' + self.backNearon[targetOrOrignalNearonName].Signal.type
+            logFile.write(logInfo)
+        elif action == 'recive':
+            logInfo += 'resive from [' + targetOrOrignalNearonName + '] a Signal with '
+            logInfo += 'Value=' + self.fontNearon[targetOrOrignalNearonName].Signal.Value
+            logInfo += ' Power=' + self.fontNearon[targetOrOrignalNearonName].Signal.power
+            logInfo += ' Type=' + self.fontNearon[targetOrOrignalNearonName].Signal.type
+            logFile.write(logInfo)
 
 
     def Work(self):
@@ -119,3 +130,8 @@ class BaseNearon(threading.Thread):
 
 #-------------------------------------------------------------
 
+
+class SansorNearon(BaseNearon):
+    """感觉神经元
+    """
+    pass
