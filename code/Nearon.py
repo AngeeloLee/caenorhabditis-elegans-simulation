@@ -7,13 +7,20 @@
 import threading
 import time
 
-threads = {}
+#连接类型系数
+linkTypeRatio = {
+    'EJ': 1.0,
+    'S': 1.0,
+    'Sp': 1.0,
+    'R': 1.0,
+    'Rp': 1.0
+}
 
 class Signal:
     """
     用来传输信号的类，仅做数据结构体使用
     """
-    def __init__(self,value=0,type='NONE',power=0):
+    def __init__(self,value=0,type=1,power=0):
         self.value = value  ##定义信号值
         self.type = type    ##定义信号类型
         self.power = power  ##定义信号强度
@@ -42,22 +49,29 @@ class BaseNearon(threading.Thread):
         self.fontNearon = font  #定义前导神经元字典列表，类型
         self.backNearon = back  #定义后继神经元字典列表，类型
         self.life = True
+        self.event = False
+        self.eventCaller = ''
     
+
     def run(self):
         while(self.life):
-           pass
+           if(self.event):
+               self.Work()
+
 
     def stop(self):
         self.life = False
 
+
     def addNearon(self, position, nearon):
         if position == 'font':
             self.fontNearon[nearon.name] = nearon
-        else if position == 'back':
+        elif position == 'back':
             self.backNearon[nearon.name] = nearon
 
+
     def ReciveSignal(self,signal,senderNearonName):
-        """接收信号函数
+        """接收信号方法
         signal:             信号对象
         senderNearonName:   发送者神经元的名字，用于查找对应神经元
         """
@@ -65,44 +79,43 @@ class BaseNearon(threading.Thread):
         self.fontNearon[senderNearonName].signal.type = signal.type
         self.fontNearon[senderNearonName].signal.power = signal.power
 
-        # print(self.name + ' recive a signal from ' + senderNearonName)
-        # for nearon in self.fontNearon:#####寻找发送者神经元
-        #     if nearon.name == senderNearonName:     #对比神经元名字
-        #         nearon.signal.value = signal.value  # ┐
-        #         nearon.signal.type = signal.type    # ├ 若找到的话赋值
-        #         nearon.signal.power = signal.power  # ┘
-        #         break
+        #发起一个事件
+        self.event = True
+        self.eventCaller = senderNearonName
+        
 
     def SendSignal(self,targetNearonName):
-        """发送信号函数
+        """发送信号方法
         targetNearonName:   目标神经元名字，用于查找对应神经元
         """
         self.backNearon[targetNearonName].object.ReciveSignal(self.backNearon[targetNearonName].signal,self.name)
 
-        # threads[targetNearonName].ReciveSignal(self.name)
-        # print(self.name + ' send a signal to ' + targetNearonName)
-        # for nearon in self.backNearon:####寻找需要发送给目标神经元的信号
-        #     if nearon.name == targetNearonName:     #对比神经元名字
-        #         nearon.object.ReciveSignal(nearon.signal,self.name)    #调用目标神经元对象的接收函数实现
-        #         break
 
-    def MakeSignal():
-        """信号处理函数，虚函数
+    def MakeSignal(self):
+        """信号处理方法
+        """
+        resivedSignalValue = self.fontNearon[self.eventCaller].signal.value
+        resivedSignalType = self.fontNearon[self.eventCaller].signal.type
+        resivedSignalPower = self.fontNearon[self.eventCaller].signal.power
+        targetSignalValue = resivedSignalValue*resivedSignalPower
+        for name,nearon in self.backNearon.items():
+            targetSignalValue *= linkTypeRatio[nearon.linkType]
+            targetSignalValue = 0-targetSignalValue if self.fontNearon[self.eventCaller].signal.type == -1 else targetSignalValue
+            nearon.signal.value += targetSignalValue * (1 + 1/nearon.linkDistance)
+
+
+    def log(self,action):
+        """日志记录方法 
+        """
+        logFile = open(self.name+'-log.txt', 'a')
+        if action == 'send':
+            
+
+
+    def Work(self):
+        """神经元工作方法，接收到信号后调用该方法
         """
         pass
 
 #-------------------------------------------------------------
 
-# nearon1 = BaseNearon('nearon1')
-# nearon2 = BaseNearon('nearon2')
-
-# threads['nearon1'] = nearon1
-# threads['nearon2'] = nearon2
-
-# nearon1.start()
-# nearon2.start()
-
-# time.sleep(5)
-
-# nearon1.stop()
-# nearon2.stop()
