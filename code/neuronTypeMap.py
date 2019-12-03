@@ -6,7 +6,7 @@ Created on Wed Nov 27 20:17:06 2019
 """
 
 import xlrd
-file = '..\\data\\NeuronType.xls'
+file = '../data/NeuronType.xls'
 def read_neuronType():
     wb = xlrd.open_workbook(filename=file)##打开文件
     sheet = [[]for i in range(12)]
@@ -27,6 +27,6 @@ def read_neuronType():
         i = i+1
     print(d)
     return d    
-if __name__ == '__main__':
-    read_neuronType()
+# if __name__ == '__main__':
+#     read_neuronType()
     
