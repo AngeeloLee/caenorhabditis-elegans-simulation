@@ -14,11 +14,8 @@ def read_neuronType():
     neuron = [[]for i in range(12)]
     for i in range(12):
         sheet[i] = wb.sheet_by_index(i)
-    for i in range(12):
         neuronType[i] = sheet[i].cell_value(0,0)
-    for i in range(12):
         neuron[i] = sheet[i].col_values(1)
-    
     d = {}
     i = 0
     for row in neuron:
@@ -27,6 +24,6 @@ def read_neuronType():
         i = i+1
     print(d)
     return d    
-# if __name__ == '__main__':
-#     read_neuronType()
+if __name__ == '__main__':
+    read_neuronType()
     
