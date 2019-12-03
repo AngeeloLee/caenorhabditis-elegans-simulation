@@ -24,6 +24,6 @@ def read_neuronType():
         i = i+1
     print(d)
     return d    
-# if __name__ == '__main__':
-#     read_neuronType()
+if __name__ == '__main__':
+    read_neuronType()
     
