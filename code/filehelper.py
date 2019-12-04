@@ -14,10 +14,16 @@ Created on Tue Nov 26 20:34:28 2019
 
 import xlrd
 
+<<<<<<< HEAD
 #file = '../data/NeuronConnect.xls'
 file = 'data/NeuronConnect.xls'
 
 def read_neuronConnet():
+=======
+file = 'data/NeuronConnect.xls'
+
+def read_neuronConnect():
+>>>>>>> 82a5458c8872e1f5c3822efc019d583443894994
     wb = xlrd.open_workbook(filename=file)##打开文件
     datas  = [[]for i in range(16)]
     for i in range(16):
@@ -28,10 +34,7 @@ def read_neuronConnet():
                 continue
             row = sheet.row_values(j)
             datas[i].append(row)
-    print(datas)
+    # print(datas)
     return datas
-if __name__ == '__main__':
-    read_neuronConnet()
-    
-
-        
+# if __name__ == '__main__':
+#     read_neuronConnect()  

@@ -22,8 +22,8 @@ def read_neuronType():
         for r in row:  
             d[r] = neuronType[i]
         i = i+1
-    print(d)
+    # print(d)
     return d    
-if __name__ == '__main__':
-    read_neuronType()
+# if __name__ == '__main__':
+#     read_neuronType()
     
