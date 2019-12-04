@@ -29,14 +29,14 @@ def print_time(threadName, delay, counter):
         counter -= 1
  
 # 创建新线程
-thread1 = myThread(1, "Thread-1", 1)
-thread2 = myThread(2, "Thread-2", 2)
+# thread1 = myThread(1, "Thread-1", 1)
+# thread2 = myThread(2, "Thread-2", 2)
 
-threads['thread-1'] = thread1
-threads['thread-2'] = thread2
+threads['thread-1'] = myThread(1, "Thread-1", 1)
+threads['thread-2'] = myThread(2, "Thread-2", 2)
  
 # 开启线程
-thread1.start()
-thread2.start()
+threads['thread-1'].start()
+threads['thread-2'].start()
  
 print("Exiting Main Thread")

@@ -64,11 +64,13 @@ class BaseNeuron(threading.Thread):
         self.life = False
 
 
-    def addNeuron(self, position, Neuron):
+    def addNeuron(self, position, neuron):
         if position == 'font':
-            self.fontNeuron[Neuron.name] = Neuron
+            self.fontNeuron[neuron.name] = neuron
         elif position == 'back':
-            self.backNeuron[Neuron.name] = Neuron
+            self.backNeuron[neuron.name] = neuron
+        elif position == 'cellular':
+            self.cellularNeuron[neuron.name] = neuron
 
 
     def ReciveSignal(self,signal,senderNeuronName,isCellular='fasle'):
@@ -159,8 +161,8 @@ class SansorNeuron(BaseNeuron):
             self.Log("send", targetName)
     
 class InterNeuron(BaseNeuron):
-    """"中间神经元
-    """"
+    """中间神经元
+    """
     def Work(self):
         self.event = false
         self.MakeSignal()
@@ -179,10 +181,9 @@ class MotorNeuron(BaseNeuron):
     def Save(self):
         self.MakeSignal()
         resultFile = open('result/'+self.name+'-result.txt', 'a')
-        resultInfo = datetime.datetime.now().strftime() + ' => [' + self.name + '] '
         Value = 0
         for key,orignal in self.fontNeuron.items():
             Value += orignal.signal.value
-       resultInfo += 'Value' + Value
-       resultFile.write(resultInfo)
+        resultInfo = datetime.datetime.now().strftime() + ' => [' + self.name + '] ' + 'Value' + Value
+        resultFile.write(resultInfo)
         
