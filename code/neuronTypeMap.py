@@ -20,6 +20,7 @@ def read_neuronType():
     i = 0
     for row in neuron:
         for r in row:  
+            r = r.upper()
             d[r] = neuronType[i]
         i = i+1
     # print(d)

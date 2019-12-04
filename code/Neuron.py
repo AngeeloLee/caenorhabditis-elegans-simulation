@@ -43,9 +43,10 @@ class BaseNeuron(threading.Thread):
     """
     神经元基类
     """
-    def __init__(self,name='',font={},back={},cellular={}):
+    def __init__(self,name='',type='',font={},back={},cellular={}):
         threading.Thread.__init__(self)
         self.name = name        #定义神经元名称
+        self.type = type
         self.fontNeuron = font  #定义前导神经元字典列表，Neuron字典类型
         self.backNeuron = back  #定义后继神经元字典列表，Neuron字典类型
         self.cellularNeuron = cellular  #定义胞间连接神经元字典列表，Neuron字典类型
