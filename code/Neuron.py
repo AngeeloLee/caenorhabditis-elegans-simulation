@@ -54,6 +54,7 @@ class BaseNeuron(threading.Thread):
         self.life = True
         self.event = False
         self.eventCaller = ''
+        logging.basicConfig(filename='log/log.log', level=logging.INFO, format='%(asctime)s in %(threadName)s => %(message)s')
     
 
     def run(self):
@@ -127,20 +128,24 @@ class BaseNeuron(threading.Thread):
     def Log(self, action, targetOrOrignalNeuronName):
         """日志记录方法 
         """
-        logFile = open('log/'+self.name+'-log.txt', 'a')
-        logInfo = datetime.datetime.now().strftime() + ' => [' + self.name + '] '
+        # logFile = open('log/'+self.name+'-log.txt', 'a')
+        # logInfo = datetime.datetime.now().strftime() + ' => [' + self.name + '] '
+        logInfo = '[' + self.name + '] '
         if action == 'send':
             logInfo += 'send to [' + targetOrOrignalNeuronName + '] a Signal with '
             logInfo += 'Value=' + self.backNeuron[targetOrOrignalNeuronName].signal.value
             logInfo += ' Power=' + self.backNeuron[targetOrOrignalNeuronName].signal.power
             logInfo += ' Type=' + self.backNeuron[targetOrOrignalNeuronName].signal.type
-            logFile.write(logInfo)
         elif action == 'recive':
             logInfo += 'resive from [' + targetOrOrignalNeuronName + '] a Signal with '
             logInfo += 'Value=' + self.fontNeuron[targetOrOrignalNeuronName].signal.value
             logInfo += ' Power=' + self.fontNeuron[targetOrOrignalNeuronName].signal.power
             logInfo += ' Type=' + self.fontNeuron[targetOrOrignalNeuronName].signal.type
-            logFile.write(logInfo)
+        elif action == 'born':
+            logInfo += 'born'
+        elif action == 'sansor':
+            logInfo += 'get a signal from env'
+        logging.info(logInfo)
 
 
     def Work(self):
@@ -154,6 +159,10 @@ class BaseNeuron(threading.Thread):
 class SansorNeuron(BaseNeuron):
     """感觉神经元
     """
+    def __init__(self,name='',type='',font={},back={},cellular={}):
+        super().__init__(name, type, font, back, cellular)
+        self.Log('born','')
+
     def Work(self):
         self.event = False
         self.MakeSignal()
@@ -161,25 +170,51 @@ class SansorNeuron(BaseNeuron):
         for targetName,neuron in self.backNeuron.items():
             self.SendSignal(targetName)
             self.Log("send", targetName)
-    
+            print(self.name + ' send a signal to ' + targetName)
+
+    def Sansor(self,signal):
+        self.Log('sansor','')
+        for name,neuron in self.fontNeuron.items():
+            neuron.signal.value = signal.value
+            neuron.signal.type = signal.type
+            neuron.signal.power = signal.power
+
+
 class InterNeuron(BaseNeuron):
     """中间神经元
     """
+    def __init__(self,name='',type='',font={},back={},cellular={}):
+        super().__init__(name, type, font, back, cellular)
+        self.Log('born', '')
+
     def Work(self):
         self.event = False
         self.MakeSignal()
         self.Log("recive",self.eventCaller)
+        print(self.name + ' recive a signal from ' + self.eventCaller)
         for targetName,neuron in self.backNeuron.items():
             self.SendSignal(targetName)
             self.Log("send", targetName)
+            print(self.name + ' send a signal to ' + targetName)
             
 class MotorNeuron(BaseNeuron):
     """运动神经元
     """
+    def __init__(self,name='',type='',font={},back={},cellular={}):
+        super().__init__(name, type, font, back, cellular)
+        self.Log('born','')
+
     def Work(self):
         self.event = False
         self.MakeSignal()
         self.Log("recive",self.eventCaller)
+        print(self.name + ' recive a signal from ' + self.eventCaller)
+        self.Save()
+        for targetName,neuron in self.backNeuron.items():
+            self.SendSignal(targetName)
+            self.Log("send", targetName)
+            print(self.name + ' send a signal to ' + targetName)
+
     def Save(self):
         self.MakeSignal()
         resultFile = open('result/'+self.name+'-result.txt', 'a')
@@ -188,4 +223,5 @@ class MotorNeuron(BaseNeuron):
             Value += orignal.signal.value
         resultInfo = datetime.datetime.now().strftime() + ' => [' + self.name + '] ' + 'Value' + Value
         resultFile.write(resultInfo)
+        print(self.name + 'rise an action with signal ' + Value)
         

@@ -1,6 +1,8 @@
 import neuronTypeMap
 import filehelper
+import Readenv
 import Neuron
+from time import sleep
 
 all = {}
 sansor = {}
@@ -63,17 +65,24 @@ def action():
 
     print('==============================')
     print('all Neurons has been activated')
-    sleep(2000)
+    # sleep(2000)
 
-    i = 0
-    print('==============================')
-    for name in all:
-        all[name].stop()
-        print(str(i) + " : " + name + " was dead")
-        i += 1
+    env = Readenv.read_env()
 
-    print('==============================')
-    print('all Neurons was dead')
+    for i in range(0, len(env)):
+        signal = env[i]
+        sansor[signal[0]].Sansor(Neuron.Signal(signal[1],signal[3],signal[2]))
+        print(signal[0] + ' get a signal' + signal[1] + ' from env')
+
+    # i = 0
+    # print('==============================')
+    # for name in all:
+    #     all[name].stop()
+    #     print(str(i) + " : " + name + " was dead")
+    #     i += 1
+
+    # print('==============================')
+    # print('all Neurons was dead')
 
 if __name__ == '__main__':
     action()
