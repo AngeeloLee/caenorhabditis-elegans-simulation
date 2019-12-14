@@ -6,6 +6,7 @@
 #from abd import ABCMeta,abstractmethod
 import threading
 import datetime
+import logging
 
 #连接类型系数
 linkTypeRatio = {
@@ -74,7 +75,7 @@ class BaseNeuron(threading.Thread):
             self.cellularNeuron[neuron.name] = neuron
 
 
-    def ReciveSignal(self,signal,senderNeuronName,isCellular='fasle'):
+    def ReciveSignal(self,signal,senderNeuronName,isCellular=False):
         """接收信号方法
         signal:             信号对象
         senderNeuronName:   发送者神经元的名字，用于查找对应神经元
@@ -100,7 +101,7 @@ class BaseNeuron(threading.Thread):
         """同步信号，将所收到信号传给所有胞间连接的神经元
         """
         for name,neuron in self.cellularNeuron.items():
-            neuron.object.ReciveSignal(self.fontNeuron[senderNeuronName].signal,self.name,true)
+            neuron.object.ReciveSignal(self.fontNeuron[senderNeuronName].signal,self.name,True)
         
 
     def SendSignal(self,targetNeuronName):
@@ -154,7 +155,7 @@ class SansorNeuron(BaseNeuron):
     """感觉神经元
     """
     def Work(self):
-        self.event = false
+        self.event = False
         self.MakeSignal()
         self.Log("recive",self.eventCaller)
         for targetName,neuron in self.backNeuron.items():
@@ -165,7 +166,7 @@ class InterNeuron(BaseNeuron):
     """中间神经元
     """
     def Work(self):
-        self.event = false
+        self.event = False
         self.MakeSignal()
         self.Log("recive",self.eventCaller)
         for targetName,neuron in self.backNeuron.items():
@@ -176,7 +177,7 @@ class MotorNeuron(BaseNeuron):
     """运动神经元
     """
     def Work(self):
-        self.event = false
+        self.event = False
         self.MakeSignal()
         self.Log("recive",self.eventCaller)
     def Save(self):

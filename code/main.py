@@ -58,7 +58,7 @@ def action():
     i = 0
     for name in all:
         all[name].start()
-        print(i + " : " + name + " of " + all[name].type + " Neuron has born")
+        print(str(i) + " : " + name + " of " + all[name].type + " Neuron has born")
         i += 1
 
     print('==============================')
@@ -69,7 +69,7 @@ def action():
     print('==============================')
     for name in all:
         all[name].stop()
-        print(i + " : " + name + " was dead")
+        print(str(i) + " : " + name + " was dead")
         i += 1
 
     print('==============================')
