@@ -72,7 +72,10 @@ def action():
     for i in range(0, len(env)):
         signal = env[i]
         sansor[signal[0]].Sansor(Neuron.Signal(signal[1],signal[3],signal[2]))
-        print(signal[0] + ' get a signal' + signal[1] + ' from env')
+        print(signal[0] + ' get a signal' + str(signal[1]) + ' from env')
+
+    while True:
+        pass
 
     # i = 0
     # print('==============================')

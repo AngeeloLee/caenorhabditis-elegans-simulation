@@ -54,6 +54,7 @@ class BaseNeuron(threading.Thread):
         self.life = True
         self.event = False
         self.eventCaller = ''
+        self.fromCellular = False
         logging.basicConfig(filename='log/log.log', level=logging.INFO, format='%(asctime)s in %(threadName)s => %(message)s')
     
 
@@ -81,48 +82,63 @@ class BaseNeuron(threading.Thread):
         signal:             信号对象
         senderNeuronName:   发送者神经元的名字，用于查找对应神经元
         """
+        print(self.name+' recive a signal from '+senderNeuronName)
         if isCellular:
             self.cellularNeuron[senderNeuronName].signal.value = signal.value
             self.cellularNeuron[senderNeuronName].signal.type = signal.type
             self.cellularNeuron[senderNeuronName].signal.power = signal.power
-            return
-        
-        self.fontNeuron[senderNeuronName].signal.value = signal.value
-        self.fontNeuron[senderNeuronName].signal.type = signal.type
-        self.fontNeuron[senderNeuronName].signal.power = signal.power
+            self.fromCellular = True
+        else:
+            self.fontNeuron[senderNeuronName].signal.value = signal.value
+            self.fontNeuron[senderNeuronName].signal.type = signal.type
+            self.fontNeuron[senderNeuronName].signal.power = signal.power
 
         #发起一个事件
         self.event = True
         self.eventCaller = senderNeuronName
         
-        #将信号同步给所有胞间连接神经元
-        self.SyschronousSignal(senderNeuronName)
-        
     def SyschronousSignal(self,senderNeuronName):
         """同步信号，将所收到信号传给所有胞间连接的神经元
         """
+        if senderNeuronName != 'env':
+            for name,neuron in self.cellularNeuron.items():
+                neuron.signal.value = self.fontNeuron[senderNeuronName].signal.value
+                neuron.signal.power = self.fontNeuron[senderNeuronName].signal.power
+                neuron.signal.type = self.fontNeuron[senderNeuronName].signal.type
+
         for name,neuron in self.cellularNeuron.items():
-            neuron.object.ReciveSignal(self.fontNeuron[senderNeuronName].signal,self.name,True)
+            print(self.name+' syschronous a signal to '+name)
+            neuron.object.ReciveSignal(self.cellularNeuron[name].signal,self.name,True)
         
 
     def SendSignal(self,targetNeuronName):
         """发送信号方法
         targetNeuronName:   目标神经元名字，用于查找对应神经元
         """
+        print(self.name+' send a signal to '+targetNeuronName)
         self.backNeuron[targetNeuronName].object.ReciveSignal(self.backNeuron[targetNeuronName].signal,self.name)
 
 
     def MakeSignal(self):
         """信号处理方法
         """
-        resivedSignalValue = self.fontNeuron[self.eventCaller].signal.value
-        resivedSignalType = self.fontNeuron[self.eventCaller].signal.type
-        resivedSignalPower = self.fontNeuron[self.eventCaller].signal.power
+        if self.fromCellular:
+            self.fromCellular = False
+            resivedSignalValue = self.cellularNeuron[self.eventCaller].signal.value
+            resivedSignalType = self.cellularNeuron[self.eventCaller].signal.type
+            resivedSignalPower = self.cellularNeuron[self.eventCaller].signal.power
+        else:
+            resivedSignalValue = self.fontNeuron[self.eventCaller].signal.value
+            resivedSignalType = self.fontNeuron[self.eventCaller].signal.type
+            resivedSignalPower = self.fontNeuron[self.eventCaller].signal.power
+
         targetSignalValue = resivedSignalValue*resivedSignalPower
         for name,Neuron in self.backNeuron.items():
             targetSignalValue *= linkTypeRatio[Neuron.linkType]
             targetSignalValue = 0-targetSignalValue if self.fontNeuron[self.eventCaller].signal.type == -1 else targetSignalValue
             Neuron.signal.value += targetSignalValue * (1 + 1/Neuron.linkDistance)
+            Neuron.signal.power = resivedSignalPower
+            Neuron.signal.type = resivedSignalType
 
 
     def Log(self, action, targetOrOrignalNeuronName):
@@ -133,14 +149,14 @@ class BaseNeuron(threading.Thread):
         logInfo = '[' + self.name + '] '
         if action == 'send':
             logInfo += 'send to [' + targetOrOrignalNeuronName + '] a Signal with '
-            logInfo += 'Value=' + self.backNeuron[targetOrOrignalNeuronName].signal.value
-            logInfo += ' Power=' + self.backNeuron[targetOrOrignalNeuronName].signal.power
-            logInfo += ' Type=' + self.backNeuron[targetOrOrignalNeuronName].signal.type
+            logInfo += 'Value=' + str(self.backNeuron[targetOrOrignalNeuronName].signal.value)
+            logInfo += ' Power=' + str(self.backNeuron[targetOrOrignalNeuronName].signal.power)
+            logInfo += ' Type=' + str(self.backNeuron[targetOrOrignalNeuronName].signal.type)
         elif action == 'recive':
             logInfo += 'resive from [' + targetOrOrignalNeuronName + '] a Signal with '
-            logInfo += 'Value=' + self.fontNeuron[targetOrOrignalNeuronName].signal.value
-            logInfo += ' Power=' + self.fontNeuron[targetOrOrignalNeuronName].signal.power
-            logInfo += ' Type=' + self.fontNeuron[targetOrOrignalNeuronName].signal.type
+            logInfo += 'Value=' + str(self.fontNeuron[targetOrOrignalNeuronName].signal.value)
+            logInfo += ' Power=' + str(self.fontNeuron[targetOrOrignalNeuronName].signal.power)
+            logInfo += ' Type=' + str(self.fontNeuron[targetOrOrignalNeuronName].signal.type)
         elif action == 'born':
             logInfo += 'born'
         elif action == 'sansor':
@@ -165,8 +181,10 @@ class SansorNeuron(BaseNeuron):
 
     def Work(self):
         self.event = False
-        self.MakeSignal()
-        self.Log("recive",self.eventCaller)
+        self.SyschronousSignal(self.eventCaller)
+        if self.eventCaller != 'env':
+            self.MakeSignal()
+            self.Log("recive",self.eventCaller)
         for targetName,neuron in self.backNeuron.items():
             self.SendSignal(targetName)
             self.Log("send", targetName)
@@ -178,6 +196,12 @@ class SansorNeuron(BaseNeuron):
             neuron.signal.value = signal.value
             neuron.signal.type = signal.type
             neuron.signal.power = signal.power
+        for name,neuron in self.cellularNeuron.items():
+            neuron.signal.value = signal.value
+            neuron.signal.type = signal.type
+            neuron.signal.power = signal.power
+        self.event = True
+        self.eventCaller = 'env'
 
 
 class InterNeuron(BaseNeuron):
@@ -189,6 +213,7 @@ class InterNeuron(BaseNeuron):
 
     def Work(self):
         self.event = False
+        self.SyschronousSignal(self.eventCaller)
         self.MakeSignal()
         self.Log("recive",self.eventCaller)
         print(self.name + ' recive a signal from ' + self.eventCaller)
@@ -206,6 +231,7 @@ class MotorNeuron(BaseNeuron):
 
     def Work(self):
         self.event = False
+        self.SyschronousSignal(self.eventCaller)
         self.MakeSignal()
         self.Log("recive",self.eventCaller)
         print(self.name + ' recive a signal from ' + self.eventCaller)

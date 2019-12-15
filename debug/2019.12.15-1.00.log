@@ -1,0 +1,407 @@
+PS I:\GitHub\caenorhabditis-elegans-simulation> cd 'i:\GitHub\caenorhabditis-elegans-simulation'; ${env:PYTHONIOENCODING}='UTF-8'; ${env:PYTHONUNBUFFERED}='1'; & 'D:\Anaconda\python.exe' 'c:\Users\win10s\.vscode\extensions\ms-python.python-2019.11.50794\pythonFiles\ptvsd_launcher.py' '--default' '--client' '--host' 'localhost' '--port' '52099' 'i:\GitHub\caenorhabditis-elegans-simulation\code\main.py'
+0 : ADAR of INTERNEURONS Neuron has born
+1 : ADAL of INTERNEURONS Neuron has born
+2 : ADFL of SENSORY Neuron has born
+3 : ASHL of SENSORY Neuron has born
+4 : AVDR of INTERNEURONS Neuron has born
+5 : PVQL of INTERNEURONS Neuron has born
+6 : ADEL of SENSORY Neuron has born
+7 : AIAL of INTERNEURONS Neuron has born
+8 : AIBL of INTERNEURONS Neuron has born
+9 : AIBR of INTERNEURONS Neuron has born
+10 : AVAR of INTERNEURONS Neuron has born
+11 : AVBL of INTERNEURONS Neuron has born
+12 : AVBR of INTERNEURONS Neuron has born
+13 : AVDL of INTERNEURONS Neuron has born
+14 : AVEL of INTERNEURONS Neuron has born
+15 : AVJR of INTERNEURONS Neuron has born
+16 : AWAL of SENSORY Neuron has born
+17 : FLPR of SENSORY Neuron has born
+18 : PVPL of INTERNEURONS Neuron has born
+19 : PVR of INTERNEURONS Neuron has born
+20 : RICL of INTERNEURONS Neuron has born
+21 : RICR of INTERNEURONS Neuron has born
+22 : RIML of MOTOR Neuron has born
+23 : RIPL of INTERNEURONS Neuron has born
+24 : RMGL of INTERNEURONS Neuron has born
+25 : SMDVR of MOTOR Neuron has born
+26 : ADFR of SENSORY Neuron has born
+27 : ASHR of SENSORY Neuron has born
+28 : PVQR of INTERNEURONS Neuron has born
+29 : ADER of SENSORY Neuron has born
+30 : AIAR of INTERNEURONS Neuron has born
+31 : AVAL of INTERNEURONS Neuron has born
+32 : AVJL of INTERNEURONS Neuron has born
+33 : RIMR of MOTOR Neuron has born
+34 : RIPR of INTERNEURONS Neuron has born
+35 : RIVR of MOTOR Neuron has born
+36 : RMGR of INTERNEURONS Neuron has born
+37 : SMDVL of MOTOR Neuron has born
+38 : URBR of INTERNEURONS Neuron has born
+39 : AINL of INTERNEURONS Neuron has born
+40 : AVKR of INTERNEURONS Neuron has born
+41 : ALA of INTERNEURONS Neuron has born
+42 : AVL of INTERNEURONS Neuron has born
+43 : BDUL of SENSORY Neuron has born
+44 : CEPDL of SENSORY Neuron has born
+45 : FLPL of SENSORY Neuron has born
+46 : IL1L of SENSORY Neuron has born
+47 : IL2L of SENSORY Neuron has born
+48 : OLLL of SENSORY Neuron has born
+49 : RIAL of INTERNEURONS Neuron has born
+50 : RIFL of INTERNEURONS Neuron has born
+51 : RIGL of INTERNEURONS Neuron has born
+52 : RIGR of INTERNEURONS Neuron has born
+53 : RIH of INTERNEURONS Neuron has born
+54 : RIVL of MOTOR Neuron has born
+55 : RMDL of MOTOR Neuron has born
+56 : RMHL of MOTOR Neuron has born
+57 : SIADR of MOTOR Neuron has born
+58 : SIBDR of MOTOR Neuron has born
+59 : SMBDR of MOTOR Neuron has born
+60 : URBL of INTERNEURONS Neuron has born
+61 : AVKL of INTERNEURONS Neuron has born
+62 : ALNR of SENSORY Neuron has born
+63 : AVER of INTERNEURONS Neuron has born
+64 : AVM of SENSORY Neuron has born
+65 : BDUR of SENSORY Neuron has born
+66 : CEPDR of SENSORY Neuron has born
+67 : IL2R of SENSORY Neuron has born
+68 : OLLR of SENSORY Neuron has born
+69 : RMDR of MOTOR Neuron has born
+70 : SAAVR of MOTOR Neuron has born
+71 : AIZL of INTERNEURONS Neuron has born
+72 : AUAL of SENSORY Neuron has born
+73 : AWBL of SENSORY Neuron has born
+74 : OLQVL of SENSORY Neuron has born
+75 : RIR of INTERNEURONS Neuron has born
+76 : SMBVL of MOTOR Neuron has born
+77 : AIYR of INTERNEURONS Neuron has born
+78 : AIZR of INTERNEURONS Neuron has born
+79 : ASEL of SENSORY Neuron has born
+80 : AUAR of SENSORY Neuron has born
+81 : AVHL of INTERNEURONS Neuron has born
+82 : AWAR of SENSORY Neuron has born
+83 : AWBR of SENSORY Neuron has born
+84 : PVPR of INTERNEURONS Neuron has born
+85 : RIAR of INTERNEURONS Neuron has born
+86 : SMBVR of MOTOR Neuron has born
+87 : URXR of SENSORY Neuron has born
+88 : ADLR of SENSORY Neuron has born
+89 : ADLL of SENSORY Neuron has born
+90 : ASER of SENSORY Neuron has born
+91 : AVHR of INTERNEURONS Neuron has born
+92 : CEPVL of SENSORY Neuron has born
+93 : SDQR of SENSORY Neuron has born
+94 : AWCR of SENSORY Neuron has born
+95 : PVCL of INTERNEURONS Neuron has born
+96 : AFDR of SENSORY Neuron has born
+97 : AFDL of SENSORY Neuron has born
+98 : AINR of INTERNEURONS Neuron has born
+99 : AIYL of INTERNEURONS Neuron has born
+100 : ASIL of SENSORY Neuron has born
+101 : AIML of INTERNEURONS Neuron has born
+102 : ASGL of SENSORY Neuron has born
+103 : ASIR of SENSORY Neuron has born
+104 : ASKL of SENSORY Neuron has born
+105 : AWCL of SENSORY Neuron has born
+106 : HSNL of MOTOR Neuron has born
+107 : AIMR of INTERNEURONS Neuron has born
+108 : ASGR of SENSORY Neuron has born
+109 : ASKR of SENSORY Neuron has born
+110 : RIFR of INTERNEURONS Neuron has born
+111 : DVC of INTERNEURONS Neuron has born
+112 : PVT of INTERNEURONS Neuron has born
+113 : BAGL of SENSORY Neuron has born
+114 : HSNR of MOTOR Neuron has born
+115 : RIBR of INTERNEURONS Neuron has born
+116 : SAADL of MOTOR Neuron has born
+117 : SAADR of MOTOR Neuron has born
+118 : SAAVL of MOTOR Neuron has born
+119 : SMDDR of MOTOR Neuron has born
+120 : DB01 of MOTOR Neuron has born
+121 : RIS of INTERNEURONS Neuron has born
+122 : RIBL of INTERNEURONS Neuron has born
+123 : SDQL of SENSORY Neuron has born
+124 : SMDDL of MOTOR Neuron has born
+125 : VB01 of MOTOR Neuron has born
+126 : ALML of SENSORY Neuron has born
+127 : AVFL of INTERNEURONS Neuron has born
+128 : AVFR of INTERNEURONS Neuron has born
+129 : ASJR of SENSORY Neuron has born
+130 : OLQDR of SENSORY Neuron has born
+131 : PVNR of INTERNEURONS Neuron has born
+132 : BAGR of SENSORY Neuron has born
+133 : RID of INTERNEURONS Neuron has born
+134 : DVA of INTERNEURONS Neuron has born
+135 : SMBDL of MOTOR Neuron has born
+136 : VB02 of MOTOR Neuron has born
+137 : PVCR of INTERNEURONS Neuron has born
+138 : RMDDR of MOTOR Neuron has born
+139 : ALMR of SENSORY Neuron has born
+140 : CEPVR of SENSORY Neuron has born
+141 : RMDDL of MOTOR Neuron has born
+142 : SIADL of MOTOR Neuron has born
+143 : ALNL of SENSORY Neuron has born
+144 : RMHR of MOTOR Neuron has born
+145 : AQR of SENSORY Neuron has born
+146 : URXL of SENSORY Neuron has born
+147 : AS01 of MOTOR Neuron has born
+148 : VA03 of MOTOR Neuron has born
+149 : VD02 of MOTOR Neuron has born
+150 : DA01 of MOTOR Neuron has born
+151 : VD01 of MOTOR Neuron has born
+152 : DA02 of MOTOR Neuron has born
+153 : AS02 of MOTOR Neuron has born
+154 : VA04 of MOTOR Neuron has born
+155 : DD01 of MOTOR Neuron has born
+156 : AS03 of MOTOR Neuron has born
+157 : VA05 of MOTOR Neuron has born
+158 : DA03 of MOTOR Neuron has born
+159 : VD03 of MOTOR Neuron has born
+160 : AS04 of MOTOR Neuron has born
+161 : AS05 of MOTOR Neuron has born
+162 : DB03 of MOTOR Neuron has born
+163 : VD04 of MOTOR Neuron has born
+164 : VA07 of MOTOR Neuron has born
+165 : DD02 of MOTOR Neuron has born
+166 : VD05 of MOTOR Neuron has born
+167 : AS06 of MOTOR Neuron has born
+168 : DA05 of MOTOR Neuron has born
+169 : VA08 of MOTOR Neuron has born
+170 : PLMR of SENSORY Neuron has born
+171 : VD06 of MOTOR Neuron has born
+172 : AS07 of MOTOR Neuron has born
+173 : AS08 of MOTOR Neuron has born
+174 : AS09 of MOTOR Neuron has born
+175 : DVB of INTERNEURONS Neuron has born
+176 : AS10 of MOTOR Neuron has born
+177 : PDB of MOTOR Neuron has born
+178 : AS11 of MOTOR Neuron has born
+179 : PDA of MOTOR Neuron has born
+180 : VA12 of MOTOR Neuron has born
+181 : VD13 of MOTOR Neuron has born
+182 : ASJL of SENSORY Neuron has born
+183 : IL2DL of SENSORY Neuron has born
+184 : DA04 of MOTOR Neuron has born
+185 : DA06 of MOTOR Neuron has born
+186 : DA07 of MOTOR Neuron has born
+187 : DB06 of MOTOR Neuron has born
+188 : LUAL of INTERNEURONS Neuron has born
+189 : SABD of MOTOR Neuron has born
+190 : SABVR of MOTOR Neuron has born
+191 : URYDL of SENSORY Neuron has born
+192 : URYVR of SENSORY Neuron has born
+193 : VA01 of MOTOR Neuron has born
+194 : VA02 of MOTOR Neuron has born
+195 : VA06 of MOTOR Neuron has born
+196 : VA09 of MOTOR Neuron has born
+197 : VA10 of MOTOR Neuron has born
+198 : VA11 of MOTOR Neuron has born
+199 : VB09 of MOTOR Neuron has born
+200 : DA08 of MOTOR Neuron has born
+201 : DA09 of MOTOR Neuron has born
+202 : DB05 of MOTOR Neuron has born
+203 : LUAR of INTERNEURONS Neuron has born
+204 : PHBL of SENSORY Neuron has born
+205 : PHBR of SENSORY Neuron has born
+206 : PHCL of SENSORY Neuron has born
+207 : PQR of SENSORY Neuron has born
+208 : PVDL of SENSORY Neuron has born
+209 : PVDR of SENSORY Neuron has born
+210 : PVNL of INTERNEURONS Neuron has born
+211 : SABVL of MOTOR Neuron has born
+212 : URYDR of SENSORY Neuron has born
+213 : URYVL of SENSORY Neuron has born
+214 : AVG of INTERNEURONS Neuron has born
+215 : PDEL of SENSORY Neuron has born
+216 : PDER of SENSORY Neuron has born
+217 : PVWR of INTERNEURONS Neuron has born
+218 : VD11 of MOTOR Neuron has born
+219 : DB04 of MOTOR Neuron has born
+220 : DB07 of MOTOR Neuron has born
+221 : SIBVL of MOTOR Neuron has born
+222 : VB04 of MOTOR Neuron has born
+223 : VB05 of MOTOR Neuron has born
+224 : VB06 of MOTOR Neuron has born
+225 : VB07 of MOTOR Neuron has born
+226 : VB08 of MOTOR Neuron has born
+227 : VB10 of MOTOR Neuron has born
+228 : VB11 of MOTOR Neuron has born
+229 : VC03 of MOTOR Neuron has born
+230 : VC04 of MOTOR Neuron has born
+231 : DB02 of MOTOR Neuron has born
+232 : VB03 of MOTOR Neuron has born
+233 : VD10 of MOTOR Neuron has born
+234 : PHAL of SENSORY Neuron has born
+235 : RMDVR of MOTOR Neuron has born
+236 : RMEV of MOTOR Neuron has born
+237 : IL1R of SENSORY Neuron has born
+238 : RMDVL of MOTOR Neuron has born
+239 : VC05 of MOTOR Neuron has born
+240 : PHAR of SENSORY Neuron has born
+241 : PHCR of SENSORY Neuron has born
+242 : PVWL of INTERNEURONS Neuron has born
+243 : PVM of SENSORY Neuron has born
+244 : RMFL of INTERNEURONS Neuron has born
+245 : RMFR of INTERNEURONS Neuron has born
+246 : SIAVR of MOTOR Neuron has born
+247 : DD06 of MOTOR Neuron has born
+248 : VC01 of MOTOR Neuron has born
+249 : VD12 of MOTOR Neuron has born
+250 : IL2VL of SENSORY Neuron has born
+251 : URADL of MOTOR Neuron has born
+252 : URADR of MOTOR Neuron has born
+253 : OLQDL of SENSORY Neuron has born
+254 : IL1DL of SENSORY Neuron has born
+255 : IL1DR of SENSORY Neuron has born
+256 : IL2DR of SENSORY Neuron has born
+257 : IL1VL of SENSORY Neuron has born
+258 : SIAVL of MOTOR Neuron has born
+259 : URAVL of MOTOR Neuron has born
+260 : OLQVR of SENSORY Neuron has born
+261 : IL1VR of SENSORY Neuron has born
+262 : IL2VR of SENSORY Neuron has born
+263 : URAVR of MOTOR Neuron has born
+264 : DD03 of MOTOR Neuron has born
+265 : VC02 of MOTOR Neuron has born
+266 : DD04 of MOTOR Neuron has born
+267 : VD08 of MOTOR Neuron has born
+268 : DD05 of MOTOR Neuron has born
+269 : VD09 of MOTOR Neuron has born
+270 : PLML of SENSORY Neuron has born
+271 : RMER of MOTOR Neuron has born
+272 : RMEL of MOTOR Neuron has born
+273 : RMED of MOTOR Neuron has born
+274 : SIBVR of MOTOR Neuron has born
+275 : SIBDL of MOTOR Neuron has born
+276 : PLNL of SENSORY Neuron has born
+277 : PLNR of SENSORY Neuron has born
+278 : VD07 of MOTOR Neuron has born
+279 : VC06 of MOTOR Neuron has born
+==============================
+all Neurons has been activated
+ADFL get a signal32.0 from env
+ADLL get a signal20.0 from env
+ADLL send a signal to ADAL
+ADFL send a signal to ADAL
+ASEL send a signal to ADAL
+AWAL get a signal30.0 from env
+AWAL send a signal to ADAL
+ADAL recive a signal from ADFL
+ADAL recive a signal from ASEL
+ADAL syschronous a signal to ADAL
+ASEL get a signal24.0 from env
+ADAL recive a signal from ADLL
+ADAL syschronous a signal to ADAL
+ADAL recive a signal from ADAL
+ADAL syschronous a signal to ADAR
+ADAR recive a signal from ADAL
+ADAL syschronous a signal to ADFL
+ADFL recive a signal from ADAL
+ADAL syschronous a signal to ASHL
+ASHL recive a signal from ADAL
+ADAL syschronous a signal to AVDR
+AVDR recive a signal from ADAL
+ADAL syschronous a signal to PVQL
+PVQL recive a signal from ADAL
+ADAL syschronous a signal to ADFR
+ADFR recive a signal from ADAL
+ADAL syschronous a signal to ASHR
+ASHR recive a signal from ADAL
+ADAL syschronous a signal to AVDL
+AVDL recive a signal from ADAL
+ADAL syschronous a signal to PVQR
+PVQR recive a signal from ADAL
+ADAL syschronous a signal to ADEL
+ADEL recive a signal from ADAL
+ADAL syschronous a signal to ADER
+ADER recive a signal from ADAL
+ADAL syschronous a signal to ADLL
+ADLL recive a signal from ADAL
+ADAL syschronous a signal to AFDL
+AFDL recive a signal from ADAL
+ADAL recive a signal from ADAL
+ADAL syschronous a signal to AFDR
+ADAL syschronous a signal to ADAR
+AFDR recive a signal from ADAL
+ADAR recive a signal from ADAL
+ADAL syschronous a signal to ADFL
+ADAL syschronous a signal to AIAL
+AIAL recive a signal from ADAL
+ADAL syschronous a signal to AIAR
+AIAR recive a signal from ADAL
+ADAL syschronous a signal to ASIL
+ADFL recive a signal from ADAL
+ADAL syschronous a signal to ASHL
+ASIL recive a signal from ADAL
+ADAL syschronous a signal to AWAL
+ASHL recive a signal from ADAL
+AWAL recive a signal from ADAL
+ADAL syschronous a signal to AVDR
+ADAL syschronous a signal to ASIR
+AVDR recive a signal from ADAL
+ASIR recive a signal from ADAL
+ADAL syschronous a signal to AWAR
+ADAL syschronous a signal to PVQL
+AWAR recive a signal from ADAL
+PVQL recive a signal from ADAL
+ADAL syschronous a signal to ADFR
+ADAL syschronous a signal to AIBL
+ADFR recive a signal from ADAL
+AIBL recive a signal from ADAL
+ADAL syschronous a signal to ASHR
+ADAL recive a signal from AWAL
+ASHR recive a signal from ADAL
+ADAL syschronous a signal to AVDL
+AVDL recive a signal from ADAL
+ADAL syschronous a signal to PVQR
+IL1DL get a signal43.0 from env
+ADAL syschronous a signal to DVC
+PVQR recive a signal from ADAL
+IL1DL send a signal to ADAL
+ADAL recive a signal from IL1DL
+ADAL syschronous a signal to ADAL
+ADAL syschronous a signal to ADEL
+ADAL syschronous a signal to ADAL
+DVC recive a signal from ADAL
+ADAL recive a signal from ADAL
+ADEL recive a signal from ADAL
+ADAL syschronous a signal to PVT
+ADAL syschronous a signal to ADAR
+ADAL recive a signal from ADAL
+ADAL syschronous a signal to ADER
+ADER recive a signal from ADAL
+ADAL syschronous a signal to ADAR
+ADAR recive a signal from ADAL
+ADAR recive a signal from ADAL
+ADAL syschronous a signal to ADFL
+ADAL syschronous a signal to ADLL
+PVT recive a signal from ADAL
+ADFL recive a signal from ADAL
+ADAL syschronous a signal to ADFL
+ADLL recive a signal from ADAL
+ADAL syschronous a signal to RIGR
+RIGR recive a signal from ADAL
+ADFL recive a signal from ADAL
+ADAL syschronous a signal to AFDL
+ADAL syschronous a signal to ASHL
+ADAL syschronous a signal to RIMR
+AFDL recive a signal from ADAL
+ADAL syschronous a signal to ASHL
+RIMR recive a signal from ADAL
+ASHL recive a signal from ADAL
+ADAL syschronous a signal to AFDR
+AFDR recive a signal from ADAL
+ADAL syschronous a signal to AVDR
+Exception in thread ADAL:
+Traceback (most recent call last):
+  File "D:\Anaconda\lib\threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "i:\GitHub\caenorhabditis-elegans-simulation\code\Neuron.py", line 63, in run
+    self.Work()
+  File "i:\GitHub\caenorhabditis-elegans-simulation\code\Neuron.py", line 199, in Work
+    self.Log("recive",self.eventCaller)
+  File "i:\GitHub\caenorhabditis-elegans-simulation\code\Neuron.py", line 144, in Log
+    logInfo += 'Value=' + str(self.fontNeuron[targetOrOrignalNeuronName].signal.value)
+TypeError: must be str, not float
